@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://use.fontawesome.com/a9983924e3.js"></script>
+    <meta charset="utf-8" />
+    <title>Org Management</title>
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <!-- CSS Imports -->
+    <link rel="stylesheet" href="../styles/css/index.css" />
+
+    <!-- Javascripts Imports -->
+    <script src="../javascript/storageDB.js"></script>
+    <script src="../javascript/routing.js"></script>
+    <script src="../javascript/index.js"></script>
+
+    <!-- Components Imports -->
+    <script src="../components/header.js"></script>
+  </head>
+  <body>
+    <custom-header isLoggedIn></custom-header>
+    <div class="container main-container">
+        <div class="row top-row">
+            <div class="col-md-4 col-xs-12 col-lg-4 col-sm-12">
+                <h6 id="welcome-note"></h6>
+            </div>
+            <div class="col-md-4 col-xs-12 col-lg-4 col-sm-12">
+                <div class="input-wrapper">
+                    <input type="text"/><button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12 col-lg-4 col-sm-12">
+                <div class="input-wrapper">
+                    <button><i class="fas fa-plus"></i> Add User</button>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+        <div
+          class="col col-md-8 col-sm-12 col-xs-12 col-lg-8 form-container user-list-wrapper"
+        >
+          <div class="top-bar">
+            <div class="top-bar-title"><h6>USERS LIST</h6></div>
+          </div>
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                  <th>ID</th>
+                  <th>E-mail</th>
+                  <th>D.O.B</th>
+                  <th></th>
+                  <th></th>
+                  </tr>
+              </thead>
+              <tbody>
+
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      const users = getAllUsersForOrg(getCurrentOrg());
+      const user = getCurrentUser();
+      document.getElementById('welcome-note').textContent = "Welcome " + user.id;
+
+      let div = document.getElementsByTagName("tbody")[0];
+      users.forEach((item) => {
+        let listItem = document.createElement("tr");
+        for(let prop in item){
+            if(prop == "id" || prop == "email" || prop == "dob"){
+            let td = document.createElement('td');
+            td.textContent = item[prop];
+            listItem.appendChild(td);
+        }        
+        }
+        let td1 = document.createElement('td');
+        let td2 = document.createElement('td');
+        let editBtn = document.createElement('button');
+        editBtn.setAttribute('class','table-btn');
+        editBtn.textContent = "Edit User";
+        let deleteBtn = document.createElement('button');
+        deleteBtn.setAttribute('class','table-btn');
+        deleteBtn.setAttribute('onclick',`deleteUser(${item.id})`);
+        deleteBtn.textContent = "Delete User";
+        td1.appendChild(editBtn);
+        td2.appendChild(deleteBtn);
+        listItem.appendChild(td1);
+        listItem.appendChild(td2);  
+        div.appendChild(listItem);
+      });
+      
+
+      customElements.define('custom-header', CustomHeader);
+    </script>
+    <script src="../javascript/homepage.js"></script>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Org Management</title>
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <!-- CSS Imports -->
+    <link rel="stylesheet" href="../styles/css/index.css" />
+
+    <!-- Javascripts Imports -->
+    <script src="../javascript/storageDB.js"></script>
+    <script src="../javascript/routing.js"></script>
+    <script src="../javascript/index.js"></script>
+
+    <!-- Components Imports -->
+    <script src="../components/header.js"></script>
+  </head>
+  <body>
+    <custom-header></custom-header>
+    <div class="container main-container">
+      <div class="row justify-content-center">
+        <div class="col col-md-4 col-sm-12 col-xs-12 col-lg-4 form-container">
+          <div class="top-bar">
+            <div class="top-bar-title"><h6>SIGN UP</h6></div>
+          </div>
+          <div class="input-wrapper">
+            <input type="text" id="username" value="" placeholder="User Id" />
+          </div>
+          <div class="input-wrapper">
+            <input type="email" id="email" value="" placeholder="E-mail" />
+          </div>
+          <div class="input-wrapper">
+            <input
+              type="password"
+              id="password"
+              value=""
+              placeholder="Password"
+            />
+          </div>
+          <div class="input-wrapper">
+            <input type="date" id="bday" value="" placeholder="D.O.B" />
+          </div>
+          <div class="input-wrapper">
+            <select id="org">
+              <option value="create">Create Org</option>
+            </select>
+          </div>
+          <div class="input-wrapper">
+            <input type="checkbox" name="isAdmin" id="isAdmin" value="admin"/>&nbsp;&nbsp;Admin User
+          </div>
+          <div class="input-wrapper">
+            <button
+              type="button"
+              id="sign-in-btn"
+              onclick="submitForm()"
+            >
+              SIGN UP
+            </button>
+          </div>
+          <div class="input-wrapper">
+            Already have an account?&nbsp;<a href="/views/signin.html"
+              >Sign In</a
+            >&nbsp;instead.
+          </div>
+        </div>
+      </div>
+      <!-- The Modal -->
+      <div id="createOrgModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="top-bar">
+                <div class="top-bar-title"><h6>CREATE ORG <span class="close">&times;</span></h6></div>
+            </div>
+            <div class="input-wrapper">
+                <input type="text" id="orgName" value="" placeholder="Enter organisation name."/>
+            </div>
+            <div class="input-wrapper">
+                <button
+                  type="button"
+                  id="save-org-btn"
+                >
+                  SAVE
+                </button>
+              </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+        customElements.define('custom-header', CustomHeader);
+    </script>
+    <script src="../javascript/register.js"></script>
+  </body>
+</html>

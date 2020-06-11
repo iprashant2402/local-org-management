@@ -1,0 +1,114 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+$top-gutter : 70px;
+$primary-bg : #e6ebf5;
+$white-bg: #fff;
+$minor-gutter: 5px;
+$minor-margin: 10px;
+$major-margin: 40px;
+$default-header-height: 50px;
+$bar-border-color: rgba(0,0,0,0.32);
+$mini-wrapper-gutter: 12px;
+$input-height: 40px;
+
+body{
+    background-color: $primary-bg;
+}
+
+.main-container{
+    margin-top: $top-gutter;
+}
+
+.form-container{
+    margin-top: $major-margin;
+    background-color: $white-bg;
+}
+
+.top-bar{
+    height: $default-header-height;
+    padding: $minor-gutter;
+    background-color: $white-bg;
+    border-bottom: 1px solid $bar-border-color;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.top-bar-title{
+    width: 100%;
+}
+
+.top-bar h6{
+    text-align: center;
+    font-weight: bold;
+}
+
+.input-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: $mini-wrapper-gutter;
+}
+
+.input-wrapper input{
+    height: $input-height;
+}
+
+.input-wrapper button{
+    height: $input-height;
+    background-color: #f6720e;
+    border: none;
+    border-radius: 3px;
+    color: $white-bg;
+    width: 50%;
+}
+
+.top-row{
+    margin-top: 140px !important;
+}
+
+#isAdmin {
+    height: 20px;
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .search-btn{
+      width: 50px !important;
+      background-color: transparent !important;
+      border: 1px solid #000 !important;
+      color: #000 !important;
+  }

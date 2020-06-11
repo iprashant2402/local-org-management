@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <title>Org Management</title>
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- CSS Imports -->
+  <link rel="stylesheet" href="../styles/css/index.css">
+
+  <!-- Javascripts Imports -->
+  <script src="../javascript/storageDB.js"></script>
+  <script src="../javascript/routing.js"></script>
+  <script src="../javascript/index.js"></script>
+
+  <!-- Components Imports -->
+  <script src="../components/header.js"></script>
+
+</head>
+<body>
+    <custom-header></custom-header>
+    <div class="container main-container">
+        
+        <div class="row justify-content-center">
+            <div class="col col-md-4 col-sm-12 col-xs-12 col-lg-4 form-container">
+                <div class="top-bar">
+                    <div class="top-bar-title"><h6>SIGN IN</h6></div>    
+                </div>
+                <div class="input-wrapper">
+                    <input type="text" id="username" value="" placeholder="User Id/Email"/>
+                </div>
+                <div class="input-wrapper">
+                    <input type="password" id="password" value="" placeholder="Password"/>
+                </div>
+                <div class="input-wrapper">
+                    <button type="button" id="sign-in-btn" onclick="login()">SIGN IN</button>
+                </div>
+                <div class="input-wrapper">
+                    <a href="/views/resetPassword.html">Forgot Password</a>&nbsp;/&nbsp;<a href="/views/signup.html">Sign Up</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script type="text/javascript">
+        customElements.define('custom-header', CustomHeader);
+    </script>
+    <script src="../javascript/login.js"></script>
+</body>
+</html>
